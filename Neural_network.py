@@ -2,25 +2,12 @@
 #%%
 import pandas as pd
 import numpy as np
-from sklearn import linear_model
-import string
-import pandas as pd
-import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import OneHotEncoder,LabelBinarizer,LabelEncoder
-from sklearn.ensemble import AdaBoostClassifier
 from sklearn.model_selection import StratifiedKFold,train_test_split,cross_val_score
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error,r2_score
-from sklearn.model_selection import KFold
-from sklearn import metrics
-from sklearn.model_selection import StratifiedKFold,train_test_split,cross_val_score,cross_val_predict
-import math
-from sklearn.metrics import roc_auc_score
-data=pd.read_csv('/home/joker/5001/all/train.csv',encoding='utf-8')
-test=pd.read_csv('/home/joker/5001/all/test.csv',encoding='utf-8')
+data=pd.read_csv('./train.csv',encoding='utf-8')
+test=pd.read_csv('./test.csv',encoding='utf-8')
 x=data.drop(columns=data.columns[len(data.columns)-1])
 y=data['time'].to_frame(name='')
 y.columns = ['time']
@@ -127,4 +114,5 @@ y_test_pred=pd.DataFrame(y_test_pred)
 y_test_pred=y_test_pred.abs()
 y_test_pred.index.name='Id'
 y_test_pred.columns=['time']
-y_test_pred.to_csv('test.csv')
+y_test_pred.to_csv('n.csv')
+
