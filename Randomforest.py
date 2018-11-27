@@ -89,7 +89,6 @@ x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.3, random_s
 forest = RandomForestRegressor(n_estimators=640,max_features=11, random_state=4, n_jobs=-1,max_depth=17) 
 forest.fit(x_train,y_train) 
 forest_pred = forest.predict(x_test)
-kfold = KFold(n_splits=5)
 y_test_pred = forest.predict(test)
 y_test_pred=pd.DataFrame(y_test_pred)
 y_test_pred=y_test_pred.abs()
